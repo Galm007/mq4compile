@@ -1,6 +1,8 @@
 # mq4compile
 A simple shell script that compiles mq4 files in the terminal
 
+Note: Before using the script, make sure to edit the METAEDITOR variable to match the path of your metaeditor.exe.
+
 Usage:
 ```
 ./mq4compile.sh /path/to/my/awesome_script.mq4
