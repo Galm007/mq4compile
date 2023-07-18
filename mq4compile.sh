@@ -23,5 +23,5 @@ SRC=$(echo $1 | rev | sed 's/\/.*//' | rev)
 
 cd "$SRC_DIR"
 wine "$METAEDITOR" /compile:"$SRC" /log:"$LOG_FILE" &> /dev/null
-bat "$LOG_FILE"
+cat "$LOG_FILE"
 rm -f "$LOG_FILE"
