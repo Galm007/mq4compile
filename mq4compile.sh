@@ -1,7 +1,7 @@
 #/usr/bin/sh
 
+# CHANGE THIS
 METAEDITOR="$HOME/.wine/drive_c/Program Files (x86)/OANDA - MetaTrader/metaeditor.exe"
-LOG_FILE=mq4compile.log
 
 if [[ $# -ne 1 ]]; then
         echo "Error: Must provide one argument to specify which mq4 file to compile."
@@ -22,6 +22,6 @@ SRC_DIR=$(echo $1 | rev | sed 's/[^\/]*\///' | rev)
 SRC=$(echo $1 | rev | sed 's/\/.*//' | rev)
 
 cd "$SRC_DIR"
-wine "$METAEDITOR" /compile:"$SRC" /log:"$LOG_FILE" &> /dev/null
-cat "$LOG_FILE"
-rm -f "$LOG_FILE"
+wine "$METAEDITOR" /compile:"$SRC" /log:mq4compile.log &> /dev/null
+cat mq4compile.log
+rm -f mq4compile.log
