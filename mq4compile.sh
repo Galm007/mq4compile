@@ -1,6 +1,5 @@
 #/usr/bin/sh
 
-# CHANGE THIS
 METAEDITOR="$HOME/.wine/drive_c/Program Files (x86)/OANDA - MetaTrader/metaeditor.exe"
 
 if [[ $# -ne 1 ]]; then
@@ -8,17 +7,13 @@ if [[ $# -ne 1 ]]; then
         exit
 fi
 
-if [[ -d $1 ]]; then
-        echo "Error: Argument must be a file but '$1' is a directory."
+if ! [[ -e $1 ]]; then
+        echo "Error: File/Directory '$1' does not exist."
         exit
 fi
 
-if ! [[ -f $1 ]]; then
-        echo "Error: File '$1' does not exist."
-        exit
-fi
-
-SRC_DIR=$(echo $1 | rev | sed 's/[^\/]*\///' | rev)
+INCLUDE_DIR="$(echo $METAEDITOR | rev | sed 's/[^\/]*//' | sed 's/\///' | rev)/MQL4/Include"
+SRC_DIR=$(echo $1 | rev | sed 's/[^\/]*//' | sed 's/\///' | rev)
 SRC=$(echo $1 | rev | sed 's/\/.*//' | rev)
 
 cd "$SRC_DIR"
