@@ -20,3 +20,5 @@ mv mq4compile.sh ~/.local/bin
 cd /path/to/my
 mq4compile.sh awesome_script.mq4
 ```
+
+Tip: Rename the script to `mqc` instead of `mq4compile.sh` to make it easier to type.
